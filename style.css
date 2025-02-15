@@ -1,0 +1,7 @@
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adds spacing between elements */
+    margin-top: 10px;
+  }
+
