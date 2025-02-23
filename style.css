@@ -6,10 +6,28 @@
   }
 
   body {
-    background-color: #f3eee7
-  }
-
-  h1 {
+    background-color: #f3eee7;
     font-family: 'DM sans', sans-serif;
   }
 
+  h1 {
+    font-family: 'Source serif 4', sans-serif;
+  }
+
+  button {
+    background-color: #c95454;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  #new-question-input {
+    height:48px;
+    font-size:16px;
+    width: 200px;
+  }
