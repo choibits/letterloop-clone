@@ -11,6 +11,7 @@ function addQuestion() {
   const question = document.createElement('h4');
   // 2. Update h4 text to question input text
   question.innerText = text;
+  question.style.fontStyle = 'italic';
   // 3. Append question to new question container
   questionContainer.appendChild(question);
 

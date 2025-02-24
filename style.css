@@ -35,9 +35,12 @@ input {
     display: inline;
 }
 
+.questionContainer {
+  background-color: #f3eee7;
+}
+
 .comment-container {
   display: inline;
-  background-color: ;
 }
 
 .comment-text {
