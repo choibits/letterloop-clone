@@ -6,7 +6,6 @@
 }
 
 body {
-    background-color: #f3eee7;
     font-family: 'DM sans', sans-serif;
 }
 
@@ -35,8 +34,10 @@ input {
     display: inline;
 }
 
-.questionContainer {
+.question-container {
   background-color: #f3eee7;
+  padding: 5px;
+  margin: 10px;
 }
 
 .comment-container {
