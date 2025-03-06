@@ -1,27 +1,7 @@
 function addQuestion() {
   // GET QUESTION INPUT TEXT
   const text = document.querySelector("#new-question-input").value;
-  if (!text) return; // prevent empty submissions
 
-  let scriptURL = "https://script.google.com/macros/s/AKfycbxzRCaBJ9JmaHHD4jrx-tgQHoaB7d18NW7bcPj_p-dypoVEMzVe_T9OjW3HzFQETfH6/exec";
-
-  fetch(scriptURL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: text })
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log("Response from Google Apps Script:", data);  // Log the response from Apps Script
-      if (data.status === "Success") {
-          document.querySelector("#new-question-input").value = "";
-          fetchQuestions(); // Refresh the list of questions from Google Sheets
-      } else {
-          console.error("Error submitting question:", data.message);
-      }
-  })
-  .catch(error => console.error("Error:", error));
-  
   // CREATE QUESTION CONTAINER
   const questionContainer = document.createElement('div');
   questionContainer.classList.add('question-container');
@@ -126,33 +106,6 @@ function addQuestion() {
   document.querySelector('#new-question-input').value = "";
 }
 
-function fetchQuestions() {
-  let scriptURL = "https://script.google.com/macros/s/AKfycbxzRCaBJ9JmaHHD4jrx-tgQHoaB7d18NW7bcPj_p-dypoVEMzVe_T9OjW3HzFQETfH6/exec";
-
-  fetch(scriptURL)
-      .then(response => response.json())
-      .then(data => {
-        console.log("Fetched questions:", data);  // Log the fetched data  
-        
-        let questionDiv = document.querySelector("#new-question-div");
-          questionDiv.innerHTML = ""; // Clear previous questions
-
-          data.forEach(q => {
-              const questionContainer = document.createElement('div');
-              questionContainer.classList.add('question-container');
-
-              const question = document.createElement('h4');
-              question.innerText = q.question;
-              question.style.fontStyle = 'italic';
-              questionContainer.appendChild(question);
-
-              questionDiv.appendChild(questionContainer);
-          });
-      })
-      .catch(error => console.error("Error fetching questions:", error));
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector('.submit-question-button').addEventListener('click', addQuestion);
-  fetchQuestions();
 });
